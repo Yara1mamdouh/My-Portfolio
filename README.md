@@ -153,28 +153,12 @@ Open `src/data/projects.js`:
 8. Click **Deploy**. Your site will be live on an HTTPS domain within seconds.
 
 ### Deploying to GitHub Pages
-1. In `vite.config.js`, add the repository base URL:
-   ```javascript
-   export default defineConfig({
-     base: '/repository-name/', // replace with your GitHub repo name
-     plugins: [react()],
-   });
-   ```
-2. Install `gh-pages`:
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-3. Add deploy scripts to `package.json`:
-   ```json
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
-4. Run:
-   ```bash
-   npm run deploy
-   ```
+The GitHub Actions workflow builds the Vite app and deploys the generated `dist/` directory whenever changes are pushed to `main`.
+
+1. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
+2. Push a commit to `main`, or run **Deploy to GitHub Pages** from the **Actions** tab.
+
+The site uses `/My-Portfolio/` as its Vite base path, so keep that setting in `vite.config.js` for this repository.
 
 ---
 
